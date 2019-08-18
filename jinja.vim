@@ -14,10 +14,20 @@ function s:Jif()
     execute "normal i\{\% endif \%\}\n\<Esc>"
 endfunction
 
+" Add macro
+function s:Jma()
+    execute "normal i\{\% macro \%\}\n\<Esc>"
+    execute "normal i\{\% endmacro \%\}\n\<Esc>"
+endfunction
+
 if !exists(":Jf")
     command Jf :call s:Jfor()
 endif
 
 if !exists(":Jif")
     command Jif :call s:Jif()
+endif
+
+if !exists(":Jma")
+    command Jma :call s:Jma()
 endif
